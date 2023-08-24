@@ -8,7 +8,6 @@ namespace LinkById
 {
     public class Item1: ALinkedById
     {
-        public Item1(Dictionary<int, int> ids) : base(ids) { }
         public Item1(int id) :base(id){ }
 
     }

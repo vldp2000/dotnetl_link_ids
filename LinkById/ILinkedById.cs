@@ -13,7 +13,6 @@ namespace LinkById
         int? LinkedId { get; }
 
         bool LinkedFlag { get; }
-        Dictionary<int, int>? LinkedIds { get; set; }        
 
     }
 }
