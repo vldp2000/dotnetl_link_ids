@@ -9,13 +9,15 @@ namespace LinkById
 {
     public abstract class ALinkedById : ILinkedById
     {
-        private static Dictionary<Type, Dictionary<int, int>>? _LinkedIds => new Dictionary<Type, Dictionary<int, int>>();
-
-        public static void AddLinkedIdList(Type type, Dictionary<int, int> ids)
+        private static IDictionary<Type, IDictionary<int, int>>? _LinkedIds = null;
+        public static void AddLinkedIdList(Type type, IDictionary<int, int> ids)
         {
-            if ( type != null && _LinkedIds != null && !_LinkedIds.ContainsKey(type))
-            {
-                _LinkedIds.TryAdd(type, ids);
+            if (_LinkedIds == null)
+                _LinkedIds = new Dictionary<Type, IDictionary<int, int>>();
+
+            if ( type != null && ids != null && !_LinkedIds.ContainsKey(type))
+            {              
+                var result = _LinkedIds.TryAdd(type, ids);
             }
         }
         protected ALinkedById(){}
