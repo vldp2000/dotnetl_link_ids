@@ -11,11 +11,11 @@ namespace LinkById
     {
         private static Dictionary<Type, Dictionary<int, int>>? _LinkedIds => new Dictionary<Type, Dictionary<int, int>>();
 
-        public static void SetIdList(Type type, Dictionary<int, int> ids)
+        public static void AddLinkedIdList(Type type, Dictionary<int, int> ids)
         {
             if ( type != null && _LinkedIds != null && !_LinkedIds.ContainsKey(type))
             {
-                _LinkedIds.Add(type, ids);
+                _LinkedIds.TryAdd(type, ids);
             }
         }
         protected ALinkedById(){}
