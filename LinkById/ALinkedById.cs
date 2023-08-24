@@ -22,22 +22,22 @@ namespace LinkById
         }
         protected ALinkedById(){}
 
-        protected ALinkedById(int id) => Id = id;
-        public int Id {get ;}
+        protected ALinkedById(int id) => OriginalValue = id;
+        public virtual int OriginalValue {get ;}
 
         private int? _LinkedId;
-        public int? LinkedId
+        public virtual int? LinkedValue
         {
             get
             {
                 if (_LinkedIds != null && _LinkedId == null && _LinkedIds.TryGetValue(GetType(), out var dct))
-                    if (dct != null && dct.TryGetValue(Id, out var newId))
+                    if (dct != null && dct.TryGetValue(OriginalValue, out var newId))
                     {
                         _LinkedId = newId;
                     }
                 return _LinkedId;
             }
         }
-        public bool LinkedFlag { get => LinkedId.HasValue; }
+        public bool LinkedFlag { get => LinkedValue.HasValue; }
     }
 }

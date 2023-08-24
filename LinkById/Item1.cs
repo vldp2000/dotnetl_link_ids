@@ -8,7 +8,11 @@ namespace LinkById
 {
     public class Item1: ALinkedById
     {
-        public Item1(int id) :base(id){ }
+        public int RefJob { get; set; }
+        public Item1(int refJob) => RefJob = refJob;
+
+        public override int OriginalValue { get => RefJob; }
+
 
     }
 }

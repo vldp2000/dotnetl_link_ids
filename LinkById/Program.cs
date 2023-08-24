@@ -10,7 +10,7 @@ Item1.AddLinkedIdList(typeof(Item1), new Dictionary<int, int>(){{1,111},{2,22},{
 Item2.AddLinkedIdList(typeof(Item2), new Dictionary<int, int>(){{5,55}, {6,66}, {8,77}});
 
 foreach (var item in item1Collection)
-    Console.WriteLine($"collection {nameof(item1Collection)}. Id = {item.Id}. Linked Id = {item.LinkedId} ");
+    Console.WriteLine($"collection {nameof(item1Collection)}. OriginalValue = {item.OriginalValue}. Linked OriginalValue = {item.LinkedValue} ");
 
 foreach (var item in item2Collection)
-    Console.WriteLine($"collection {nameof(item2Collection)}. Id = {item.Id}. Linked Id = {item.LinkedId} ");
+    Console.WriteLine($"collection {nameof(item2Collection)}. OriginalValue = {item.OriginalValue}. Linked OriginalValue = {item.LinkedValue} ");

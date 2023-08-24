@@ -8,9 +8,9 @@ namespace LinkById
 {
     internal interface ILinkedById
     {
-        int Id { get; }
+        int OriginalValue { get; }
 
-        int? LinkedId { get; }
+        int? LinkedValue { get; }
 
         bool LinkedFlag { get; }
 
