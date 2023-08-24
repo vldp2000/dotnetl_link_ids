@@ -18,16 +18,9 @@ namespace LinkById
                 _LinkedIds.Add(type, ids);
             }
         }
+        protected ALinkedById(){}
 
-        protected ALinkedById()
-        {
-
-        }
-
-        protected ALinkedById(int id)
-        {
-            Id = id;
-        }
+        protected ALinkedById(int id) => Id = id;
         public int Id {get ;}
 
         private int? _LinkedId;
@@ -44,6 +37,5 @@ namespace LinkById
             }
         }
         public bool LinkedFlag { get => LinkedId.HasValue; }
-
     }
 }
