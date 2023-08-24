@@ -12,7 +12,7 @@ namespace LinkById
         private static IDictionary<Type, IDictionary<int, int>>? _LinkedIds = null;
 
         public static void AddLinkedIdList(Type type, IDictionary<int, int> ids)
-        {
+        {           
             if (_LinkedIds == null)
                 _LinkedIds = new Dictionary<Type, IDictionary<int, int>>();
 
@@ -33,7 +33,6 @@ namespace LinkById
 
         protected ALinkedById(){}
 
-        protected ALinkedById(int id) => OriginalValue = id;
         public virtual int OriginalValue {get ;}
 
         private int? _LinkedId;
