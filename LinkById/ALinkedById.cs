@@ -9,19 +9,12 @@ namespace LinkById
 {
     public abstract class ALinkedById : ILinkedById
     {
-        //private static IDictionary<Type, IDictionary<int, int>>? _LinkedIds = null;
-        private static Lazy <IDictionary<Type, IDictionary<int, int>>> _lazyLinkedIds = new(() => new Dictionary<Type, IDictionary<int, int>>());
-        private static IDictionary<Type, IDictionary<int, int>>? _LinkedIds => Getlazy();
-
-        private static IDictionary<Type, IDictionary<int, int>> Getlazy()
-        {
-            return _lazyLinkedIds.Value;
-        }
+        private static IDictionary<Type, IDictionary<int, int>>? _LinkedIds = null;
 
         public static void AddLinkedIdList(Type type, IDictionary<int, int> ids)
         {
-            //if (_LinkedIds == null)
-            //    _LinkedIds = new Dictionary<Type, IDictionary<int, int>>();
+            if (_LinkedIds == null)
+                _LinkedIds = new Dictionary<Type, IDictionary<int, int>>();
 
             if (type != null && ids != null && !_LinkedIds.ContainsKey(type))
             {
@@ -29,6 +22,14 @@ namespace LinkById
             }
         }
 
+        public static void CleanLinkedValues()
+        {
+            if (_LinkedIds != null)
+            {
+                _LinkedIds.Clear();
+                _LinkedIds = null;
+            }
+        }
 
         protected ALinkedById(){}
 
@@ -49,5 +50,6 @@ namespace LinkById
             }
         }
         public bool LinkedFlag { get => LinkedValue.HasValue; }
+
     }
 }

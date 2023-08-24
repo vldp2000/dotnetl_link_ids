@@ -14,3 +14,5 @@ foreach (var item in item1Collection)
 
 foreach (var item in item2Collection)
     Console.WriteLine($"collection {nameof(item2Collection)}. OriginalValue = {item.OriginalValue}. Linked OriginalValue = {item.LinkedValue} ");
+
+Item1.CleanLinkedValues();
