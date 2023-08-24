@@ -33,7 +33,7 @@ namespace LinkById
 
         protected ALinkedById(){}
 
-        public virtual int OriginalValue {get ;}
+        public virtual int PropertyToBeLinked {get ;}
 
         private int? _LinkedId;
         public virtual int? LinkedValue
@@ -41,7 +41,7 @@ namespace LinkById
             get
             {
                 if (_LinkedIds != null && _LinkedId == null && _LinkedIds.TryGetValue(GetType(), out var dct))
-                    if (dct != null && dct.TryGetValue(OriginalValue, out var newId))
+                    if (dct != null && dct.TryGetValue(PropertyToBeLinked, out var newId))
                     {
                         _LinkedId = newId;
                     }

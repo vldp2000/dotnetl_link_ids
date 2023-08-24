@@ -8,7 +8,7 @@ namespace LinkById
 {
     internal interface ILinkedById
     {
-        int OriginalValue { get; }
+        int PropertyToBeLinked { get; }
 
         int? LinkedValue { get; }
 

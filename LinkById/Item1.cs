@@ -11,7 +11,7 @@ namespace LinkById
         public int RefJob { get; set; }
         public Item1(int refJob) => RefJob = refJob;
 
-        public override int OriginalValue { get => RefJob; }
+        public override int PropertyToBeLinked { get => RefJob; }
 
 
     }

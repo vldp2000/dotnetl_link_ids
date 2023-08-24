@@ -11,7 +11,7 @@ namespace LinkById
         public Item2(int id) => Id = id;
 
         public int Id { get; set; }
-        public override int OriginalValue { get => Id;}
+        public override int PropertyToBeLinked { get => Id;}
 
     }
 }
