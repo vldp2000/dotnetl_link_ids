@@ -17,7 +17,7 @@ namespace LinkById
 
             if ( type != null && ids != null && !_LinkedIds.ContainsKey(type))
             {              
-                var result = _LinkedIds.TryAdd(type, ids);
+                _LinkedIds.Add(type, ids);
             }
         }
         protected ALinkedById(){}
