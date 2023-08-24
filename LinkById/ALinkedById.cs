@@ -9,17 +9,27 @@ namespace LinkById
 {
     public abstract class ALinkedById : ILinkedById
     {
-        private static IDictionary<Type, IDictionary<int, int>>? _LinkedIds = null;
+        //private static IDictionary<Type, IDictionary<int, int>>? _LinkedIds = null;
+        private static Lazy <IDictionary<Type, IDictionary<int, int>>> _lazyLinkedIds = new(() => new Dictionary<Type, IDictionary<int, int>>());
+        private static IDictionary<Type, IDictionary<int, int>>? _LinkedIds => Getlazy();
+
+        private static IDictionary<Type, IDictionary<int, int>> Getlazy()
+        {
+            return _lazyLinkedIds.Value;
+        }
+
         public static void AddLinkedIdList(Type type, IDictionary<int, int> ids)
         {
-            if (_LinkedIds == null)
-                _LinkedIds = new Dictionary<Type, IDictionary<int, int>>();
+            //if (_LinkedIds == null)
+            //    _LinkedIds = new Dictionary<Type, IDictionary<int, int>>();
 
-            if ( type != null && ids != null && !_LinkedIds.ContainsKey(type))
-            {              
+            if (type != null && ids != null && !_LinkedIds.ContainsKey(type))
+            {
                 _LinkedIds.Add(type, ids);
             }
         }
+
+
         protected ALinkedById(){}
 
         protected ALinkedById(int id) => OriginalValue = id;
