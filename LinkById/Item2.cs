@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 
 namespace LinkById
 {
-    public class Item2: ALinkedById
+    public class Item2 : ALinkedById, ISubstitute
     {
-        public Item2(int id) => Id = id;
-
+        public Item2(int id, string code)
+        {
+            Id = id;
+            Code = code;
+        }
         public int Id { get; set; }
-        public override int PropertyToBeLinked { get => Id;}
+        public string Code { get; set; }
+        public override int PropertyToBeLinked { get => Id; }
 
     }
 }
